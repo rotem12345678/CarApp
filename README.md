@@ -14,7 +14,7 @@ npm i
 And check the 'mongod.exe' Service is running.
 
 
-If mongod not running, Run the server will throw error.
+If mongod not running, Run the server will throw an error.
 
 
 
