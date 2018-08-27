@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import { CarTypDefault, CarTypes} from './CarTypes'
 import AddCarForm from './AddCarForm';
+
+
 //Semantic-Ui:
 import {Button, Container, Header, Card, Grid, Segment} from 'semantic-ui-react';
 
@@ -11,8 +14,8 @@ class Home extends Component {
 
         this.state = {
             vehicles: [],
-            name: 'h',
-            cartype: 'SUV',
+            name: 'New Car Name',
+            cartype: CarTypDefault ,
             //for Hide the AddCarForm
             isHidden: true,
         };
@@ -149,6 +152,8 @@ class Home extends Component {
                             <div >
                                 {!this.state.isHidden &&
                                 <AddCarForm
+                                    name = {this.state.name}
+                                    cartype = {this.state.cartype}
                                     onSubmit={this.handleSubmit}
                                     onNameChange={ this.handleChangeName}
                                     onTypeChange={this.handleChangeType }

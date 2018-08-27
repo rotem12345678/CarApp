@@ -2,13 +2,10 @@ import React, {Component}  from 'react'
 //Semantic-Ui:
 import {Button, Container, Form} from 'semantic-ui-react'
 
-//option for Form Select
-const options = [
-    {key: 'SUV', text: 'SUV', value: 'SUV'},
-    {key: 'Truck', text: 'Truck', value: 'Truck'},
-    {key: 'Hybrid', text: 'Hybrid', value: 'Hybrid'}
-]
+import { CarTypDefault, CarTypes} from './CarTypes'
 
+//option for Form Select
+const options = Object.keys(CarTypes).map((name)=>({key: name, text: name, value: name}));
 
 class AddCarForm extends Component {
     constructor(props) {
@@ -18,6 +15,9 @@ class AddCarForm extends Component {
     render() {
         const name = this.props.name;
         const cartype = this.props.cartype;
+
+        //console.log(name);
+        //console.log(cartype);
 
         return (
             <Container >
@@ -37,7 +37,7 @@ class AddCarForm extends Component {
 
                         <Form.Select
                             fluid label='Car Type:'
-                            placeholder='SUV'
+                            placeholder={CarTypDefault}
                             value={cartype}
                             options={options}
                             onChange={(e) => {this.props.onTypeChange(e.target.innerText)}}>

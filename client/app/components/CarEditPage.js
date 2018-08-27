@@ -1,17 +1,13 @@
 import React, {Component}  from 'react'
 import {Link} from 'react-router-dom';
+import {CarTypes,CarTypDefault} from './CarTypes';
 
 //Semantic-Ui
 import {Button, Container, Header, Input, Select, Segment, Form} from 'semantic-ui-react'
 
+
 //option for Form Select
-const options = [
-    {key: 'SUV', text: 'SUV', value: 'SUV'},
-    {key: 'Truck', text: 'Truck', value: 'Truck'},
-    {key: 'Hybrid', text: 'Hybrid', value: 'Hybrid'}
-]
-
-
+const options = Object.keys(CarTypes).map((name)=>({key: name, text: name, value: name}));
 
 //Page url: http://localhost:8080/CarPage/:id/edit
 
@@ -20,8 +16,8 @@ class CarEditPage extends Component {
         super(props);
         this.state = {
             vehicle: null,
-            name: 'eee',
-            cartype: 'SUV',
+            name: 'Car Name',
+            cartype: CarTypDefault,
             //for check if update is needed:
             oldName: '',
             oldCarType: '',
@@ -130,7 +126,7 @@ class CarEditPage extends Component {
                                     />
                                     <Form.Select
                                         fluid label='Car Type:'
-                                        placeholder='SUV'
+                                        placeholder={CarTypDefault}
                                         value={cartype}
                                         options={options}
                                         onChange={this.handleChangeType}
