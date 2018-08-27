@@ -30,7 +30,7 @@ Available commands to run with `npm run`:
 
  - `start`:  run the PRODUCTION server
  - `start:dev`: run the server in DEV mode
- - `start:DEBUG`: build the dev package and run the server in DEBUG mode
+ - `start:DEBUG`: run the server in DEBUG mode
 
 ## Server DB
 ```
